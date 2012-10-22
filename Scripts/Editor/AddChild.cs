@@ -10,14 +10,15 @@ public class AddChild : ScriptableObject
     static void MenuAddChild()
     {
         Transform[] transforms = Selection.GetTransforms(SelectionMode.TopLevel | SelectionMode.OnlyUserModifiable);
- 
+		
         foreach(Transform transform in transforms)
         {
             GameObject newChild = new GameObject("_null");
             newChild.transform.parent = transform;
-		newChild.transform.localPosition = Vector3.zero;
+			newChild.transform.localPosition = Vector3.zero;
+			Selection.activeGameObject = newChild;
         }
- 
+		
     }    
     
     [MenuItem ("GameObject/+Add Parent &p")]
